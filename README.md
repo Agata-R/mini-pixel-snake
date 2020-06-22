@@ -1,2 +1,4 @@
 # mini-pixel-snake
-Written in vanilla JS. // CodeSandbox
+
+Written in Vanilla JS. // CodeSandbox
+[Online preview](https://pqig5.csb.app/)

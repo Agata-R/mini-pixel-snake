@@ -13,6 +13,8 @@ $gap: 30px;
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
   background-color: lighten($dc, 2%);
@@ -45,12 +47,9 @@ hr {
 .content {
   display: grid;
   grid-template-columns: [col1] auto [col2] 150px [end];
-  grid-template-rows: [header] auto [content] auto [footer] auto [end];
+  grid-template-rows: [content] auto [footer] auto [end];
   gap: $gap $gap;
-}
-.header {
-  grid-column: col1/end;
-  grid-row: header/content;
+  margin: $gap 0;
 }
 .bottom {
   grid-column: col1/end;
@@ -67,6 +66,12 @@ hr {
       margin-top: 5px;
     }
   }
+}
+.header{
+  text-align: center;
+  background-color: $dc;
+  width: 100%;
+  padding: $gap;
 }
 /* aside */
 .btn {
@@ -111,7 +116,6 @@ hr {
   background-color: $dc;
   width: 100%;
   padding: $gap;
-  margin-top: $gap;
 }
 /* Snake game*/
 .square {

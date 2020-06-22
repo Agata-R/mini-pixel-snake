@@ -285,7 +285,6 @@ class Snake {
 let snake = new Snake();
 let squarePanel = document.getElementById("square");
 let restartBtn = document.getElementById("restart");
-let content = document.getElementById("content");
 document.addEventListener("keydown", event => {
   // change snake's direction
   if (["ArrowUp", "ArrowLeft", "ArrowRight", "ArrowDown"].includes(event.key)) {
@@ -312,10 +311,10 @@ document.querySelectorAll(".item_type").forEach(item => {
     snake.changeType(item.getAttribute("id"));
     snake.restart();
     document.querySelectorAll(".item_type").forEach(item2 => {
-      content.classList.remove(item2.getAttribute("id"));
+      document.body.classList.remove(item2.getAttribute("id"));
       item2.classList.remove("selected");
     });
-    content.classList.add(item.getAttribute("id"));
+    document.body.classList.add(item.getAttribute("id"));
     item.classList.add("selected");
   });
 });

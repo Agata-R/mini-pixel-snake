@@ -1,7 +1,7 @@
 {
   "name": "mini-pixel-snake",
   "version": "1.0.0",
-  "description": "",
+  "description": "Written in Vanilla JS.",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
