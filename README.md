@@ -1,2 +1,2 @@
 # mini-pixel-snake
-Created with CodeSandbox
+Written in vanilla JS. // CodeSandbox
