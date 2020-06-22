@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="content" class="content">
+      <header class="header">
+        <h1>Mini-pixel snake</h1>
+        <p>Written in vanilla JS.</p>
+      </header>
+
+      <div class="col col_main">
+        <div class="square_outer" id="squareOuter">
+          <div class="square" id="square">
+            <div class="info" id="info">
+              <span class="info_innter">Start</span>
+            </div>
+            <div class="snake" id="snake"></div>
+            <div class="apple" id="apple"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col col_aside">
+        <div class="score"><span>Score: </span><span id="score">0</span></div>
+        <div class="score score_best">
+          <span>Best score: </span><span id="best_score">0</span>
+        </div>
+        <!-- <div class="btn btn_play active" id="play">Play</div>-->
+        <div class="btn btn_restart" id="restart">Restart</div>
+      </div>
+
+      <div class="bottom">
+        <div class="type">
+          <span class="speed_title">Type: </span>
+          <span class="btn min item_type selected" id="normal">normal</span>
+          <span class="btn min item_type" id="challenge">challenge</span>
+          <!--<span class="btn min item_type" id="no_walls">no walls</span>-->
+        </div>
+        <hr />
+        <div class="speed">
+          <span class="speed_title">Speed: </span>
+          <span class="btn min item_speed" id="slow">slow</span>
+          <span class="btn min item_speed selected" id="medium">medium</span>
+          <span class="btn min item_speed" id="fast">fast</span>
+          <span class="btn min item_speed" id="too_fast">too fast</span>
+        </div>
+        <hr />
+        <div class="description">
+          <p>
+            <strong>Info:</strong> Press space or click on square to
+            start/pause/restart game.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      © 2020 Agata | <a href="https://krol-trefl.blogspot.com/">KrólTrefl</a>
+    </footer>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

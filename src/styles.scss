@@ -1,0 +1,192 @@
+$dc: #222;
+$lc: #eee;
+$c: OLIVEDRAB;
+$tailColors: GREENYELLOW, CHARTREUSE, LAWNGREEN, LIME, PALEGREEN;
+$gap: 30px;
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: lighten($dc, 2%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  color: $lc;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+p {
+  margin: 0;
+  & + p {
+    margin-top: $gap/2;
+  }
+}
+a {
+  color: $c;
+  text-decoration: none;
+  &:hover {
+    color: lighten($c, 15%);
+  }
+}
+hr {
+  border-color: lighten($dc, 5%);
+  border-width: 0 0 1px 0;
+  margin: $gap/2 0;
+}
+.content {
+  display: grid;
+  grid-template-columns: [col1] auto [col2] 150px [end];
+  grid-template-rows: [header] auto [content] auto [footer] auto [end];
+  gap: $gap $gap;
+}
+.header {
+  grid-column: col1/end;
+  grid-row: header/content;
+}
+.bottom {
+  grid-column: col1/end;
+  grid-row: footer/end;
+}
+.col {
+  grid-row: content/footer;
+  &_main {
+    grid-column: col1/col2;
+  }
+  &_aside {
+    grid-column: col2/end;
+    & > * + * {
+      margin-top: 5px;
+    }
+  }
+}
+/* aside */
+.btn {
+  background-color: darken($dc, 2%);
+  padding: $gap/2 $gap;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    background-color: $c;
+  }
+  border: 1px solid transparent;
+  &.active {
+    background-color: $c;
+  }
+  &.selected {
+    border-color: $c;
+  }
+  &.min {
+    padding: $gap/5 $gap/2;
+  }
+}
+.score {
+  background-color: $dc;
+  padding: $gap/2;
+  text-align: center;
+  #score{
+    color: $c;
+  }
+}
+/* bottom */
+.bottom {
+  font-size: 0.9em;
+  background-color: $dc;
+  padding: $gap;
+  .btn {
+    display: inline-block;
+  }
+}
+.footer {
+  text-align: center;
+  font-size: 0.85em;
+  background-color: $dc;
+  width: 100%;
+  padding: $gap;
+  margin-top: $gap;
+}
+/* Snake game*/
+.square {
+  display: flex;
+  background-color: $dc;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  &_outer {
+    border: 15px solid darken($dc, 2%);
+  }
+  &.gray {
+    filter: grayscale(1);
+  }
+}
+.snake {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  top: 45px;
+  left: 45px;
+  z-index: 1;
+  // border-radius: 100%;
+  @for $i from 1 to 6 {
+    &:nth-child(5n + #{$i}) {
+      background-color: nth($tailColors, $i);
+    }
+  }
+}
+.apple {
+  background-color: tomato;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  left: 0;
+  // border-radius: 100%;
+}
+.info {
+  position: absolute;
+  text-align: center;
+  background-color: darken($dc, 2%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 125px;
+  left: 75px;
+  height: 50px;
+  width: 150px;
+  z-index: 2;
+}
+
+.challenge {
+  $c: TOMATO;
+  a {
+    color: $c;
+    &:hover {
+      color: lighten($c, 15%);
+    }
+  }
+  .btn {
+    &:hover {
+      background-color: $c;
+    }
+    &.active {
+      background-color: $c;
+    }
+    &.selected {
+      border-color: $c;
+    }
+  }
+  .score {
+    #score{
+      color: $c;
+    }
+  }
+}
