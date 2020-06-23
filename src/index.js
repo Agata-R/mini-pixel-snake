@@ -188,15 +188,21 @@ class Snake {
     this.score.textContent = this.apples;
   }
   ifBestScore() {
-    if (this.apples > this.bestScore) {
-      if (this.type === "challenge") {
-        this.bestScoreChallenge = this.apples;
-        this.bestScoreTxt.textContent = this.bestScoreChallenge;
-      } else {
-        this.bestScore = this.apples;
-        this.bestScoreTxt.textContent = this.bestScore;
-      }
-      this.info.textContent = "Best score!";
+    switch (this.type) {
+      case "challenge":
+        if (this.apples > this.bestScoreChallenge) {
+          this.bestScoreChallenge = this.apples;
+          this.bestScoreTxt.textContent = this.bestScoreChallenge;
+        }
+        break;
+      case "normal":
+        if (this.apples > this.bestScore) {
+          this.bestScore = this.apples;
+          this.bestScoreTxt.textContent = this.bestScore;
+        }
+        break;
+      default:
+      // none
     }
   }
   changeScore() {
