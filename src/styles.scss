@@ -117,6 +117,13 @@ hr {
   width: 100%;
   padding: $gap;
 }
+.disabled{
+  filter: grayscale(1);
+  opacity:.5;
+  .btn{
+    pointer-events: none;
+  }
+}
 /* Snake game*/
 .square {
   display: flex;

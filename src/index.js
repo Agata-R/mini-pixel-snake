@@ -216,7 +216,7 @@ class Snake {
     switch (type) {
       case "challenge":
         this.type = "challenge";
-
+        this.stepTime = 150;
         break;
       case "normal":
         this.type = "normal";
@@ -291,6 +291,7 @@ class Snake {
 let snake = new Snake();
 let squarePanel = document.getElementById("square");
 let restartBtn = document.getElementById("restart");
+let speedOuter = document.querySelector(".speed");
 document.addEventListener("keydown", event => {
   // change snake's direction
   if (["ArrowUp", "ArrowLeft", "ArrowRight", "ArrowDown"].includes(event.key)) {
@@ -322,6 +323,11 @@ document.querySelectorAll(".item_type").forEach(item => {
     });
     document.body.classList.add(item.getAttribute("id"));
     item.classList.add("selected");
+    if (item.getAttribute("id") === "challenge") {
+      speedOuter.classList.add("disabled");
+    } else {
+      speedOuter.classList.remove("disabled");
+    }
   });
 });
 restartBtn.addEventListener("click", function() {
