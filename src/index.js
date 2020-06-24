@@ -130,7 +130,7 @@ class Snake {
       this.info.textContent = "Best score!";
     }
     if (this.type === "challenge") {
-      this.stepTime = this.stepTimeDefault;
+      this.stepTime = 150;
     }
   }
   restart() {
