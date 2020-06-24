@@ -35,13 +35,10 @@ class Snake {
 
   toggle() {
     if (!this.snakeIsMoving && !this.snakeLost) {
-      // start
       this.move();
     } else if (this.snakeIsMoving && !this.snakeLost) {
-      // pause
       this.pause();
     } else {
-      // restart
       this.restart();
     }
   }
@@ -129,7 +126,9 @@ class Snake {
     this.square.classList.add("gray");
     this.info.style.visibility = "visible";
     this.info.textContent = "Try again";
-    this.ifBestScore();
+    if (this.ifBestScore()) {
+      this.info.textContent = "Best score!";
+    }
     if (this.type === "challenge") {
       this.stepTime = this.stepTimeDefault;
     }
@@ -193,17 +192,20 @@ class Snake {
         if (this.apples > this.bestScoreChallenge) {
           this.bestScoreChallenge = this.apples;
           this.bestScoreTxt.textContent = this.bestScoreChallenge;
+          return true;
         }
         break;
       case "normal":
         if (this.apples > this.bestScore) {
           this.bestScore = this.apples;
           this.bestScoreTxt.textContent = this.bestScore;
+          return true;
         }
         break;
       default:
       // none
     }
+    return false;
   }
   changeScore() {
     if (this.type === "challenge") {
@@ -281,7 +283,6 @@ class Snake {
       default:
       // none
     }
-    // this.pause();
   }
   getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -293,14 +294,12 @@ let squarePanel = document.getElementById("square");
 let restartBtn = document.getElementById("restart");
 let speedOuter = document.querySelector(".speed");
 document.addEventListener("keydown", event => {
-  // change snake's direction
   if (["ArrowUp", "ArrowLeft", "ArrowRight", "ArrowDown"].includes(event.key)) {
-    event.preventDefault(); // don't scroll page
+    event.preventDefault();
     snake.setNewDirection(event.key);
   }
-  // start + restart + pausa: spacja
   if (event.key === " ") {
-    event.preventDefault(); // don't scroll page
+    event.preventDefault();
     snake.toggle();
   }
 });
